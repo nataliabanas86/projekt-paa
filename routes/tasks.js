@@ -1,6 +1,6 @@
 const router = require('koa-router')()
 const store = require('../store')
-const tasks = require('./routes/tasks')
+
 router.prefix('/tasks')
 
 router.post('/add', async (ctx, next) => {
@@ -9,4 +9,3 @@ router.post('/add', async (ctx, next) => {
 })
 
 module.exports = router
-app.use(tasks.routes(), tasks.allowedMethods())
