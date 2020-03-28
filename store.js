@@ -1,8 +1,7 @@
 const storage = require('azure-storage')
-const uuid = require('uuid')
 const service = storage.createTableService()
 const table = 'tasks'
-
+const uuid = require('uuid')
 
 const init = async () => (
   new Promise((resolve, reject) => {
@@ -13,9 +12,8 @@ const init = async () => (
 )
 
 module.exports = {
-  init,
+  init
 }
-
 
 const createTask = async (title) => (
   new Promise((resolve, reject) => {
@@ -26,14 +24,11 @@ const createTask = async (title) => (
       title
     }
 
-
     service.insertEntity(table, task, (error, result, response) => {
       !error ? resolve() : reject()
     })
   })
 )
-
-
 
 const listTasks = async () => (
   new Promise((resolve, reject) => {
@@ -48,7 +43,6 @@ const listTasks = async () => (
     })
   })
 )
-
 
 module.exports = {
   init,
